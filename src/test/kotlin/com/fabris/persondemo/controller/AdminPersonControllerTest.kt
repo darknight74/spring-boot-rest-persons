@@ -229,7 +229,7 @@ class AdminPersonControllerTest {
         status { isForbidden() }
         content { contentType(MediaType.APPLICATION_JSON) }
         jsonPath("$.Status", Matchers.`is`(HttpStatus.FORBIDDEN.value()))
-        jsonPath("$.Message", Matchers.`is`("Access forbidden"))
+        jsonPath("$.Message", Matchers.`is`(HttpStatus.FORBIDDEN.reasonPhrase))
     }
 
     private fun MockMvcResultMatchersDsl.checkAccessUnauthorized() {
